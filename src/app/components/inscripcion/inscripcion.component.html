@@ -1,0 +1,15 @@
+<div *ngIf="!inscrito; else yaInscrito">
+  <button 
+    class="btn btn-success btn-lg" 
+    (click)="onInscribirse()" 
+    [disabled]="cargando">
+    {{ cargando ? 'Inscribiendo...' : 'Inscribirse al Taller' }}
+  </button>
+  <div class="text-danger mt-2" *ngIf="error">{{ error }}</div>
+</div>
+
+<ng-template #yaInscrito>
+  <div class="alert alert-success">
+    <strong>✅ Inscrito</strong> Has confirmado tu participación en este taller.
+  </div>
+</ng-template>
